@@ -1,6 +1,8 @@
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import { BrowserRouter } from "react-router-dom";
 import { Container } from "./styles";
-import ScrollAnimation from "react-animate-on-scroll";
 import Illustration from "../../assets/illustration.svg";
 import { NavHashLink } from "react-router-hash-link";
 import linkedin from "../../assets/linkedin.svg";
@@ -8,32 +10,42 @@ import githubIcon from "../../assets/github.svg";
 import whatsapp from "../../assets/whatsapp.svg";
 import Hello from "../../assets/Hello.gif";
 import telegram from "../../assets/telegram.svg";
+
 export function Hero() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <Container id="home">
       <div className="hero-text">
-        <ScrollAnimation animateIn="fadeInUp">
+        <div data-aos="fade-up">
           <p>
             Hello <img src={Hello} alt="Hello" width="20px" />, I'm
           </p>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInUp" delay={0.2 * 1000}>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="200">
           <h1>Rohan Ahirrao</h1>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInUp" delay={0.4 * 1000}>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="400">
           <h3>Software Engineer</h3>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInUp" delay={0.6 * 1000}>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="600">
           <p className="small-resume">1 Year Experience</p>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInUp" delay={0.8 * 1000}>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="800">
           <BrowserRouter>
             <NavHashLink smooth to="#contact" className="button">
               Contact
             </NavHashLink>
           </BrowserRouter>
-        </ScrollAnimation>
-        <ScrollAnimation animateIn="fadeInUp" delay={1 * 1000}>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="1000">
           <div className="social-media">
             <a
               href="https://linkedin.com/in/rohan-ahirrao24"
@@ -56,16 +68,16 @@ export function Hero() {
             >
               <img src={whatsapp} alt="Whatsapp" />
             </a>
+            {/* Uncomment if you want to include Telegram */}
             {/* <a href="https://t.me/CodeVinayak" target="_blank" rel="noreferrer">
               <img src={telegram} alt="telegram" />
             </a> */}
           </div>
-        </ScrollAnimation>
+        </div>
       </div>
-      <div className="hero-image">
-        <ScrollAnimation animateIn="fadeInRight" delay={1 * 1000}>
-          <img src={Illustration} alt="Ilustração" />
-        </ScrollAnimation>
+
+      <div className="hero-image" data-aos="fade-right" data-aos-delay="1000">
+        <img src={Illustration} alt="Illustration" />
       </div>
     </Container>
   );

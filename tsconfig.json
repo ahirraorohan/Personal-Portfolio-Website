@@ -22,6 +22,6 @@
     "types": ["@types/babel__generator/index.d.ts"]
   },
   "include": [
-    "src"
+    "src",  "src/types"
   ]
 }
